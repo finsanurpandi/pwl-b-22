@@ -24,12 +24,12 @@ class StudentSeeder extends Seeder
 
         for ($i = 0; $i < 50; $i++) {
             $department = $departments[array_rand($departments)];
-            $entry_years = rand(2018, 2024);
             $nidns = DB::table('lecturers')->pluck('nidn')->toArray();
-            $npms = substr($department['code'], 0, 5) . substr($entry_years, -2). rand(1, 190);
+            $year_entry = rand(2018, 2024);
 
-            DB::table('lecturers')->insert([
-                'npm' => $npms,
+            $npm = substr($department['code'], 0, 5) . substr($year_entry, -2) .str_pad(rand(1, 190), 3, '0', STR_PAD_LEFT);
+            DB::table('students')->insert([
+                'npm' => $npm,
                 'fullname' => $faker->name,
                 'year_entry' => rand(2018, 2024),
                 'group' => $faker->randomElement(['A', 'B', 'C', 'D', 'NR']),

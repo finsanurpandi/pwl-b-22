@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('students', function (Blueprint $table) {
-            $table->renameColumn('name', 'fullname');
+            // $table->renameColumn('name', 'fullname');
             $table->string('group', 2)->after('year_entry');
-            $table->dropForeign(['nidn']);
-            $table->dropIndex('students_nidn_foreign');
+            // $table->dropForeign(['nidn']);
+            // $table->dropIndex('students_nidn_foreign');
         });
     }
 
@@ -25,11 +25,11 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('students', function (Blueprint $table) {
-            $table->renameColumn('fullname', 'name');
+            // $table->renameColumn('fullname', 'name');
             $table->dropColumn('group');
-            $table->foreign('nidn')
-                ->references('nidn')
-                ->on('lecturers');
+            // $table->foreign('nidn')
+                // ->references('nidn')
+                // ->on('lecturers');
         });
     }
 };

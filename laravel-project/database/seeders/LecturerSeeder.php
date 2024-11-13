@@ -19,7 +19,7 @@ class LecturerSeeder extends Seeder
         for($i=0; $i < 20; $i++)
         DB::table('lecturers')->insert([
             'nidn' => rand(1111111111, 9999999999),
-            'first_name' => $faker->firstName,
+            'firstname' => $faker->firstName,
             'last_name' => $faker->lastName,
             'department_id' => rand(1,3)
         ]);
